@@ -7,10 +7,6 @@ on:
       - master
   workflow_dispatch:
 
-env:
-  CheckEolWorkloads: 'false'
-  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 'true'
-
 jobs:
   build-apk:
     name: Build & Package Android APK
@@ -35,20 +31,13 @@ jobs:
           java-version: '17'
 
       - name: Restore Dependencies
-        run: |
-          dotnet restore src/Miqbas.Mobile/Miqbas.Mobile.csproj \
-            -p:CheckEolWorkloads=false \
-            -p:TargetPlatformVersion=34.0 \
-            -p:SupportedOSPlatformVersion=24.0
+        run: dotnet restore src/Miqbas.Mobile/Miqbas.Mobile.csproj
 
       - name: Build Android APK
         run: |
           dotnet publish src/Miqbas.Mobile/Miqbas.Mobile.csproj \
             -f net8.0-android \
             -c Release \
-            -p:CheckEolWorkloads=false \
-            -p:TargetPlatformVersion=34.0 \
-            -p:SupportedOSPlatformVersion=24.0 \
             -p:AndroidPackageFormat=apk \
             -p:AndroidKeyStore=false \
             -o ./output

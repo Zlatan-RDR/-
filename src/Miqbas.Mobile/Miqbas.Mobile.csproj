@@ -54,4 +54,9 @@
 		</Reference>
 	</ItemGroup>
 
+
+  <PropertyGroup Condition="$(TargetFramework.Contains('-android'))">
+    <SupportedOSPlatformVersion>24.0</SupportedOSPlatformVersion>
+    <TargetPlatformVersion>34.0</TargetPlatformVersion>
+  </PropertyGroup>
 </Project>

@@ -36,7 +36,10 @@ jobs:
 
       - name: Restore Dependencies
         run: |
-          dotnet restore src/Miqbas.Mobile/Miqbas.Mobile.csproj -p:CheckEolWorkloads=false
+          dotnet restore src/Miqbas.Mobile/Miqbas.Mobile.csproj \
+            -p:CheckEolWorkloads=false \
+            -p:TargetPlatformVersion=34.0 \
+            -p:SupportedOSPlatformVersion=24.0
 
       - name: Build Android APK
         run: |
@@ -44,6 +47,8 @@ jobs:
             -f net8.0-android \
             -c Release \
             -p:CheckEolWorkloads=false \
+            -p:TargetPlatformVersion=34.0 \
+            -p:SupportedOSPlatformVersion=24.0 \
             -p:AndroidPackageFormat=apk \
             -p:AndroidKeyStore=false \
             -o ./output

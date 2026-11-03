@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Miqbas.Unity.AndroidCore\Miqbas.Unity.AndroidCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AssetsTools.NET">
+      <HintPath>..\..\Miqbas-Extracted\lib\app\AssetsTools.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="AssetsTools.NET.MonoCecil">
+      <HintPath>..\..\Miqbas-Extracted\lib\app\AssetsTools.NET.MonoCecil.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

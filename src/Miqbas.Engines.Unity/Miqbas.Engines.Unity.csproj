@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Miqbas.Engines.Unity</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>netcoreapp8.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Miqbas.Core">
+      <HintPath>../../Miqbas-Extracted/lib/app/Miqbas.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections" />
+    <Reference Include="Miqbas.Rendering.Arabic">
+      <HintPath>../../Miqbas-Extracted/lib/app/Miqbas.Rendering.Arabic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq" />
+    <Reference Include="System.Text.Json">
+      <HintPath>../../Miqbas-Extracted/lib/app/System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Text.RegularExpressions" />
+    <Reference Include="System.Memory" />
+    <Reference Include="System.Text.Encoding.Extensions" />
+    <Reference Include="System.Security.Cryptography" />
+    <Reference Include="System.Text.Encodings.Web">
+      <HintPath>../../Miqbas-Extracted/lib/app/System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.ZipFile" />
+    <Reference Include="System.Threading.Thread" />
+    <Reference Include="System.Private.CoreLib" />
+  </ItemGroup>
+</Project>

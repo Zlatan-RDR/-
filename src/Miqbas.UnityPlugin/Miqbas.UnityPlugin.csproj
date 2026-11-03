@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Miqbas.UnityPlugin</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="0Harmony" />
+    <Reference Include="Miqbas.Rendering.Arabic">
+      <HintPath>../../Miqbas-Extracted/lib/app/Assets/UnityPlugin/Miqbas.Rendering.Arabic.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule" />
+    <Reference Include="UnityEngine.CoreModule" />
+    <Reference Include="UnityEngine.IMGUIModule" />
+    <Reference Include="BepInEx" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Miqbas.Core</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>netcoreapp8.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Miqbas.Core.Engines.SteamDbFileRules.ini" />
+    <EmbeddedResource Include="Miqbas.Core.Engines.SteamDbFileRules.ini" LogicalName="Miqbas.Core.Engines.SteamDbFileRules.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Text.RegularExpressions" />
+    <Reference Include="System.Collections" />
+    <Reference Include="System.Linq" />
+    <Reference Include="System.Text.Json">
+      <HintPath>../../Miqbas-Extracted/lib/app/System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Security.Cryptography" />
+    <Reference Include="System.Collections.Concurrent" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Primitives" />
+    <Reference Include="System.Memory" />
+    <Reference Include="System.Text.Encodings.Web">
+      <HintPath>../../Miqbas-Extracted/lib/app/System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Miqbas.Rendering.Arabic">
+      <HintPath>../../Miqbas-Extracted/lib/app/Miqbas.Rendering.Arabic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Thread" />
+    <Reference Include="System.IO.FileSystem.DriveInfo" />
+    <Reference Include="System.IO.Compression.ZipFile" />
+    <Reference Include="System.Private.CoreLib" />
+  </ItemGroup>
+</Project>

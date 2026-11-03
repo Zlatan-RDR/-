@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Miqbas.Engines.Unreal</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>netcoreapp8.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Miqbas.Core">
+      <HintPath>../../Miqbas-Extracted/lib/app/Miqbas.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections" />
+    <Reference Include="System.Runtime.Intrinsics" />
+    <Reference Include="System.Security.Cryptography" />
+    <Reference Include="System.Linq" />
+    <Reference Include="System.Threading.Tasks.Parallel" />
+    <Reference Include="System.Text.RegularExpressions" />
+    <Reference Include="System.Diagnostics.Process" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.InteropServices" />
+    <Reference Include="System.Text.Encoding.Extensions" />
+    <Reference Include="System.Memory" />
+    <Reference Include="Miqbas.Rendering.Arabic">
+      <HintPath>../../Miqbas-Extracted/lib/app/Miqbas.Rendering.Arabic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Primitives" />
+    <Reference Include="System.IO.Compression.ZipFile" />
+    <Reference Include="System.Diagnostics.FileVersionInfo" />
+    <Reference Include="System.Threading" />
+    <Reference Include="System.Private.CoreLib" />
+  </ItemGroup>
+</Project>

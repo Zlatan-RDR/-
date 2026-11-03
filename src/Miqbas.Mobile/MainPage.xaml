@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Miqbas.Mobile.MainPage"
+             Title="مقباس أندرويد"
+             FlowDirection="RightToLeft">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="18" Padding="20">
+
+            <!-- App Header -->
+            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                <Label Text="🎮 مقباس Unity Patcher"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       TextColor="{StaticResource Secondary}" />
+                <Label Text="حقن الخطوط العربية وتصحيح النصوص لألعاب Unity على أندرويد"
+                       FontSize="13"
+                       TextColor="{StaticResource TextSecondaryDark}"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+
+            <!-- Card 1: Asset File Picker -->
+            <Frame>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="📁 ملف الأصول المستهدف (resources.assets)"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource TextPrimaryDark}" />
+
+                    <Label Text="اختر ملف أصول اللعبة المستخرج من الـ APK أو من مجلد اللعبة:"
+                           FontSize="12"
+                           TextColor="{StaticResource TextSecondaryDark}" />
+
+                    <Grid ColumnDefinitions="*, Auto" ColumnSpacing="10">
+                        <Entry x:Name="FilePathEntry"
+                               Placeholder="لم يتم تحديد ملف بعد..."
+                               IsReadOnly="True"
+                               FontSize="13"
+                               TextColor="{StaticResource TextPrimaryDark}"
+                               BackgroundColor="#0F172A" />
+                        <Button Grid.Column="1"
+                                Text="استعراض..."
+                                Clicked="OnBrowseFileClicked"
+                                BackgroundColor="{StaticResource Secondary}" />
+                    </Grid>
+
+                    <Label x:Name="FileInfoLabel"
+                           Text=""
+                           FontSize="11"
+                           TextColor="{StaticResource Tertiary}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Card 2: Font Selection -->
+            <Frame>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="🔤 نوع الخط العربي البديل (Fallback Font)"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource TextPrimaryDark}" />
+
+                    <Label Text="سيتم دمج أطلس الخط وربطه بـ TMP Settings تلقائياً:"
+                           FontSize="12"
+                           TextColor="{StaticResource TextSecondaryDark}" />
+
+                    <Picker x:Name="FontChoicePicker"
+                            Title="اختر الخط العربي"
+                            SelectedIndex="0"
+                            SelectedIndexChanged="OnFontSelectionChanged"
+                            BackgroundColor="#0F172A"
+                            TextColor="{StaticResource TextPrimaryDark}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>IBM Plex Sans Arabic (خط قياسي متوازن - موصى به)</x:String>
+                                <x:String>Noto Sans Arabic Condensed (خط مكثف - للقوائم الصغيرة)</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Card 3: Live Arabic Shaping Test -->
+            <Frame>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="✍️ اختبار التشكيل والـ BiDi المباشر"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource TextPrimaryDark}" />
+
+                    <Entry x:Name="TestArabicEntry"
+                           Text="مرحبا بك في اللعبة! &lt;color=yellow&gt;100 عملة&lt;/color&gt;"
+                           TextChanged="OnTestArabicTextChanged"
+                           BackgroundColor="#0F172A"
+                           TextColor="{StaticResource TextPrimaryDark}" />
+
+                    <Label Text="المعاينة المجهزة (Shaped + BiDi):"
+                           FontSize="12"
+                           TextColor="{StaticResource TextSecondaryDark}" />
+
+                    <Frame BackgroundColor="#0F172A" Padding="10" BorderColor="{StaticResource BorderDark}">
+                        <Label x:Name="TestArabicPreviewLabel"
+                               Text=""
+                               FontSize="14"
+                               TextColor="{StaticResource Success}" />
+                    </Frame>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Card 4: Action & Progress -->
+            <Frame>
+                <VerticalStackLayout Spacing="14">
+                    <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                        <Button x:Name="InspectButton"
+                                Text="🔍 فحص الأصول"
+                                BackgroundColor="#334155"
+                                Clicked="OnInspectAssetsClicked" />
+
+                        <Button Grid.Column="1"
+                                x:Name="PatchButton"
+                                Text="⚡ حقن الخط العربي"
+                                BackgroundColor="{StaticResource Primary}"
+                                Clicked="OnPatchAssetsClicked" />
+                    </Grid>
+
+                    <VerticalStackLayout Spacing="6">
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Label x:Name="StatusMessageLabel"
+                                   Text="جاهز لبدء العملية."
+                                   FontSize="12"
+                                   TextColor="{StaticResource TextSecondaryDark}" />
+                            <Label Grid.Column="1"
+                                   x:Name="PercentageLabel"
+                                   Text="0%"
+                                   FontSize="12"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource Primary}" />
+                        </Grid>
+
+                        <ProgressBar x:Name="PatchProgressBar"
+                                     Progress="0"
+                                     HeightRequest="8" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Card 5: Log & Diagnostic Output -->
+            <Frame>
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="📋 سجل العمليات (Diagnostics Log)"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource TextSecondaryDark}" />
+
+                    <ScrollView HeightRequest="120">
+                        <Label x:Name="LogOutputLabel"
+                               Text="[نظام مقباس جاهز للاستخدام]"
+                               FontSize="11"
+                               FontFamily="monospace"
+                               TextColor="#CBD5E1" />
+                    </ScrollView>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>Miqbas.Unity.AndroidCore</AssemblyName>
+    <RootNamespace>Miqbas.Unity.AndroidCore</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="AssetsTools.NET">
+      <HintPath Condition="Exists('..\libs\AssetsTools.NET.dll')">..\libs\AssetsTools.NET.dll</HintPath>
+      <HintPath Condition="!Exists('..\libs\AssetsTools.NET.dll')">../../Miqbas-Extracted/lib/app/AssetsTools.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="AssetsTools.NET.MonoCecil">
+      <HintPath Condition="Exists('..\libs\AssetsTools.NET.MonoCecil.dll')">..\libs\AssetsTools.NET.MonoCecil.dll</HintPath>
+      <HintPath Condition="!Exists('..\libs\AssetsTools.NET.MonoCecil.dll')">../../Miqbas-Extracted/lib/app/AssetsTools.NET.MonoCecil.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\classdata.tpk" />
+    <EmbeddedResource Include="Resources\IBMPlexSansArabic-Regular.atlas.bin" />
+    <EmbeddedResource Include="Resources\IBMPlexSansArabic-Regular.atlas.json" />
+    <EmbeddedResource Include="Resources\NotoSansArabicCondensedMiqbas-Medium.atlas.bin" />
+    <EmbeddedResource Include="Resources\NotoSansArabicCondensedMiqbas-Medium.atlas.json" />
+  </ItemGroup>
+</Project>
